@@ -1,0 +1,14 @@
+[
+  {
+    "caption": "chmod…",
+    "id": "side-bar-chmod",
+    "command": "sublemake_sidebar_chmod",
+    "args": {"paths": []}
+  },
+  {
+    "caption": "chmod a+x",
+    "id": "side-bar-chmod-ax",
+    "command": "sublemake_sidebar_chmod",
+    "args": {"paths": [], "perms": "a+x"}
+  }
+]
