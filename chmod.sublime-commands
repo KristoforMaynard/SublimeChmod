@@ -1,4 +1,4 @@
 [
-  { "caption": "Sublemake: chmod…", "command": "sublemake_chmod" },
-  { "caption": "Sublemake: chmod a+x", "command": "sublemake_chmod", "args": {"perms": "a+x"} }
+  { "caption": "Chmod…", "command": "sublemake_chmod" },
+  { "caption": "Chmod a+x", "command": "sublemake_chmod", "args": {"perms": "a+x"} }
 ]
