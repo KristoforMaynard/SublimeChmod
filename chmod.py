@@ -59,10 +59,10 @@ def chmod(fname, current_perms_int, desired_perms):
             return None
 
     try:
-        # print("chmod {0}: {1} -> {2}".format(fname, oct(current_perms_int), 
+        # print("chmod {0}: {1} -> {2}".format(fname, oct(current_perms_int),
         #                                      oct(mode)))
         os.chmod(fname, mode)
-    except Exception as e:
+    except Exception as e:  # pylint: disable=broad-except
         sublime.message_dialog("Unable to chmod: {0}".format(e.message))
     return None
 
@@ -88,16 +88,16 @@ def action(fname, perms=""):
             done(perms)
 
 class SublemakeChmodCommand(sublime_plugin.TextCommand):
-    def run(self, edit, perms=""):
+    def run(self, edit, perms=""):  # pylint: disable=arguments-differ
         fname = self.view.file_name()
         if fname == None:
             sublime.message_dialog("You need to save this buffer first!")
-        else:        
+        else:
             action(fname, perms=perms)
 
 
 class SublemakeSidebarChmodCommand(sublime_plugin.WindowCommand):
-    def run(self, paths=[None], perms=""):
+    def run(self, paths=[None], perms=""):  # pylint: disable=arguments-differ
         fname = paths[0]
         action(fname, perms=perms)
 
