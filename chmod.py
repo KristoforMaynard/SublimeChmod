@@ -1,4 +1,5 @@
 import os
+import subprocess
 import stat
 
 import sublime
@@ -73,7 +74,11 @@ def action(fname, perms=""):
         current_perms = oct(current_perms_int & 0o777).lstrip("0o")
 
         def done(desired_perms):
-            chmod(fname, current_perms_int, desired_perms)
+            try:
+                cmd = "chmod {0} {1}".format(desired_perms, fname)
+                subprocess.check_output(cmd.split())
+            except Exception:  # pylint: disable=broad-except
+                chmod(fname, current_perms_int, desired_perms)
 
         if perms == "":
             sublime.active_window().show_input_panel(
